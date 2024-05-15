@@ -1,0 +1,30 @@
+// Export pages
+export '/splash_page/splash_page_widget.dart' show SplashPageWidget;
+export '/pages/registerations_and_login/login_page/login_page_widget.dart'
+    show LoginPageWidget;
+export '/pages/registerations_and_login/creat_account_page/creat_account_page_widget.dart'
+    show CreatAccountPageWidget;
+export '/pages/registerations_and_login/home_page/home_page_widget.dart'
+    show HomePageWidget;
+export '/pages/registerations_and_login/settings_page/settings_page_widget.dart'
+    show SettingsPageWidget;
+export '/pages/registerations_and_login/package_page/package_page_widget.dart'
+    show PackagePageWidget;
+export '/pages/registerations_and_login/side_menu_page/side_menu_page_widget.dart'
+    show SideMenuPageWidget;
+export '/pages/registerations_and_login/edit_settings_page/edit_settings_page_widget.dart'
+    show EditSettingsPageWidget;
+export '/pages/registerations_and_login/about_app_page/about_app_page_widget.dart'
+    show AboutAppPageWidget;
+export '/pages/registerations_and_login/purchased_packages_page/purchased_packages_page_widget.dart'
+    show PurchasedPackagesPageWidget;
+export '/pages/registerations_and_login/exam_results_page/exam_results_page_widget.dart'
+    show ExamResultsPageWidget;
+export '/pages/registerations_and_login/exams_page/exams_page_widget.dart'
+    show ExamsPageWidget;
+export '/pages/registerations_and_login/start_exam_page/start_exam_page_widget.dart'
+    show StartExamPageWidget;
+export '/pages/registerations_and_login/start_exam_page_copy/start_exam_page_copy_widget.dart'
+    show StartExamPageCopyWidget;
+export '/pages/registerations_and_login/country_code_page/country_code_page_widget.dart'
+    show CountryCodePageWidget;

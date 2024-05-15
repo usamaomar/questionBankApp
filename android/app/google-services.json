@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1093777612601",
+    "project_id": "questionbank-47b3e",
+    "storage_bucket": "questionbank-47b3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093777612601:android:2eae7123907f4e38d812e8",
+        "android_client_info": {
+          "package_name": "com.mycompany.questionbank"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFoNxAPltxtatP8hjoegj5Yrjru4V1bVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
