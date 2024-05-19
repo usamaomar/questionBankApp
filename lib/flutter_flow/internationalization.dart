@@ -727,6 +727,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // cc
+  {
+    'e7nz0com': {
+      'en': 'Hello World',
+      'ar': 'كلمة المرور غير متطابقة',
+    },
+  },
   // Miscellaneous
   {
     '9xx2mofo': {
