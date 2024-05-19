@@ -1,4 +1,5 @@
 import '../../../backend/api_requests/api_calls.dart';
+import '../../../backend/schema/structs/user_model_struct.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -675,6 +676,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                               .textController1
                                                               .text,
                                                           fcm: 'value',
+                                                          password: _model
+                                                              .textController2
+                                                              .text,
                                                           appVersion: version,
                                                           appOs:
                                                               Platform.isAndroid
@@ -682,8 +686,37 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                   : 'IOS',
                                                           appLang: FFAppState()
                                                               .AppLanguage);
-
-
+                                                  if (_model.loginApiCall?.statusCode == 200) {
+                                                    // if (UserModelStruct.maybeFromMap((_model
+                                                    //     .loginApiCall
+                                                    //     ?.jsonBody ??
+                                                    //     ''))
+                                                    //     ?.token !=
+                                                    //     null &&
+                                                    //     UserModelStruct.maybeFromMap((_model
+                                                    //         .loginApiCall
+                                                    //         ?.jsonBody ??
+                                                    //         ''))
+                                                    //         ?.token !=
+                                                    //         '') {
+                                                    //   setState(() {
+                                                    //     FFAppState()
+                                                    //         .UserModelState =
+                                                    //     UserModelStruct
+                                                    //         .maybeFromMap((_model
+                                                    //         .loginApiCall
+                                                    //         ?.jsonBody ??
+                                                    //         ''))!;
+                                                    //   });
+                                                    // }
+                                                  } else {
+                                                    errorSheet(
+                                                        context,
+                                                        _model.unfocusNode,
+                                                        _model.loginApiCall
+                                                            ?.bodyText,
+                                                        _model.loginApiCall?.statusCode ?? 0);
+                                                  }
                                                 },
                                                 text:
                                                     FFLocalizations.of(context)

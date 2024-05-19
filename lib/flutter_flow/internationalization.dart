@@ -122,6 +122,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'JOD',
       'ar': 'JOD',
     },
+    '0j4zhvsdsdsde7': {
+      'en': 'Error',
+      'ar': 'خطأ',
+    },
     'oo3b7kuz': {
       'en': 'Mobile',
       'ar': 'متحرك',
@@ -133,6 +137,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ei6ui2p8': {
       'en': 'Forgot Password',
       'ar': 'هل نسيت كلمة السر',
+    },
+
+    'klkle': {
+      'en': 'Name Must Not Be Empty',
+      'ar': 'الاسم فارغ',
+    },
+    'rewkl': {
+      'en': 'Email is Incorrect',
+      'ar': 'الايميل غير صحيح',
+    },
+    'rmemwe': {
+      'en': 'Mobile Must Not Be Empty',
+      'ar': 'رقم الهاتف فارغ',
+    },
+
+
+
+    '90fsv0vq': {
+      'en': 'Done',
+      'ar': 'حسنا',
     },
     'ei6ui2dmsdfjlskdjflksdjlp8': {
       'en': 'Password Must Not Be Empty',

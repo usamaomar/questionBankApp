@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		+2ZxXvX5wCCFC5xxFuhqCaGHqnY=
+		2WWpB6nTZ5DpEbZz8fmh/LKz0AA=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		7d7HUPtCgtK1pL5BqXuwC4y58yU=
+		2IqIoTj8qStKIqi/WV3/whK2izc=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		j6trZoX0VSrdVmuPHT1Ez8ci3aw=
+		wqzrc3aOI7U2dHkv8fZzQGPxST4=
 		</data>
 		<key>flutter_assets/assets/audios/favicon.png</key>
 		<data>
@@ -76,6 +76,10 @@
 		<data>
 		YaZ3V+0+ASndzNpun6DfJV7pKWI=
 		</data>
+		<key>flutter_assets/assets/images/not_allowed.svg</key>
+		<data>
+		Dsk2XxkNWFgL21bzA2msQDIez34=
+		</data>
 		<key>flutter_assets/assets/lottie_animations/favicon.png</key>
 		<data>
 		YaZ3V+0+ASndzNpun6DfJV7pKWI=
@@ -102,7 +106,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		wQoMxoIYBUF5SGT05Iwc+7xurLY=
+		ZhBgbIWvTRPb4hiWG5WB9kH+qVw=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -135,14 +139,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lAkxJtMrUoWN3Bq0Ruopbg5Rify8aShHMVz2W51uIOk=
+			yiXnwT7MfEbLJzFQVtK/DxsJKOM7Sqn2wkbRWX4zNmw=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			b5aZ3GdxQVpZoWXiWh7tC3n3Qqus+s1osi3nPbzcdNU=
+			k496eyuE0foS6z5Yfr+tPYcSJfEKeE//+4NBrNgyaC4=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -156,7 +160,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VOFA+7KP8xJAQpEhGSK3clwzJqwurgEU/TJ6lYUUnT8=
+			X987u20N1mxUWuXdYea9GKaVFtsa8zGm9DOsZDJrAXs=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/audios/favicon.png</key>
@@ -250,6 +254,13 @@
 			erJSX0uGtl0+THA1ihfloar29Df5nLzARtrXPVm7kBU=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/not_allowed.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fL01xK07EEDYrE9MYBztj0N5/A6eyxO/QdiSYFTgoUM=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/lottie_animations/favicon.png</key>
 		<dict>
 			<key>hash2</key>
@@ -296,7 +307,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+dwd767Nqd9c1Nk5KDosfAlzftxu69txBlV6tqgUhmw=
+			GSnYYqn0l9r8Ov+ZZX8BTGm60gNCh/F21lv2SYOjR/8=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

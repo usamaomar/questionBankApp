@@ -1,3 +1,5 @@
+import 'package:package_info_plus/package_info_plus.dart';
+
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -8,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'creat_account_page_model.dart';
 export 'creat_account_page_model.dart';
+import 'dart:io' show Platform;
+
 
 class CreatAccountPageWidget extends StatefulWidget {
   const CreatAccountPageWidget({super.key});
@@ -80,10 +84,33 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                   color: FlutterFlowTheme.of(context).primary,
                 ),
               ),
+              Padding(
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 15.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      FFLocalizations.of(context).getText(
+                        'nas4qj4n' /* Create Account */,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            color: const Color(0xFFFFFFFF),
+                            fontSize: 25.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w800,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      20.0, 0.0, 20.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -136,35 +163,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 30.0, 0.0, 15.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'nas4qj4n' /* Create Account */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: const Color(0xFF202B37),
-                                                    fontSize: 25.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w800,
-                                                  ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            25.0, 20.0, 25.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(25.0, 30.0, 25.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController1,
                                           focusNode: _model.textFieldFocusNode1,
@@ -192,16 +192,22 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: Color(0x00000000),
+                                              borderSide: BorderSide(
+                                                color:
+                                                    _model.nameIsEmpty == true
+                                                        ? Color(0xFFEF2121)
+                                                        : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: Color(0x00000000),
+                                              borderSide: BorderSide(
+                                                color:
+                                                    _model.nameIsEmpty == true
+                                                        ? Color(0xFFEF2121)
+                                                        : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -210,8 +216,9 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
+                                                    _model.nameIsEmpty == true
+                                                        ? Color(0xFFEF2121)
+                                                        : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -221,8 +228,9 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                 OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
+                                                    _model.nameIsEmpty == true
+                                                        ? Color(0xFFEF2121)
+                                                        : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -231,7 +239,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                             filled: true,
                                             fillColor: const Color(0xFFF5F5F5),
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional
+                                                    .fromSTEB(
                                                     22.0, 0.0, 22.0, 0.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -246,9 +255,36 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                               .asValidator(context),
                                         ),
                                       ),
+                                      Visibility(
+                                        visible: _model.nameIsEmpty == true,
+                                        child: Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(25.0, 8.0, 25.0, 5.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'klkle' /*   phone empty */,
+                                                ),
+                                                style:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmall
+                                                    .override(
+                                                  color:
+                                                  Color(0xFFEF2121),
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            25.0, 20.0, 25.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(25.0, 20.0, 25.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController2,
                                           focusNode: _model.textFieldFocusNode2,
@@ -276,16 +312,22 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: Color(0x00000000),
+                                              borderSide: BorderSide(
+                                                color:
+                                                    _model.emailIsEmpty == true
+                                                        ? Color(0xFFEF2121)
+                                                        : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: Color(0x00000000),
+                                              borderSide: BorderSide(
+                                                color:
+                                                    _model.emailIsEmpty == true
+                                                        ? Color(0xFFEF2121)
+                                                        : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -294,8 +336,9 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
+                                                    _model.emailIsEmpty == true
+                                                        ? Color(0xFFEF2121)
+                                                        : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -305,8 +348,9 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                 OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
+                                                    _model.emailIsEmpty == true
+                                                        ? Color(0xFFEF2121)
+                                                        : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -315,7 +359,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                             filled: true,
                                             fillColor: const Color(0xFFF5F5F5),
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional
+                                                    .fromSTEB(
                                                     22.0, 0.0, 22.0, 0.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -327,25 +372,45 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                               ),
                                           keyboardType:
                                               TextInputType.emailAddress,
-                                          validator: _model
-                                              .textController2Validator
-                                              .asValidator(context),
-                                          inputFormatters: [
-                                            FilteringTextInputFormatter.allow(
-                                                RegExp(
-                                                    '\'^(([^<>()[\\]\\\\.,;:\\s@\\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))\$\''))
-                                          ],
+                                        ),
+                                      ),
+                                      Visibility(
+                                        visible: _model.emailIsEmpty == true,
+                                        child: Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(25.0, 8.0, 25.0, 5.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'rewkl' /*   phone empty */,
+                                                ),
+                                                style:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmall
+                                                    .override(
+                                                  color:
+                                                  Color(0xFFEF2121),
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            25.0, 0.0, 25.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(25.0, 0.0, 25.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 20.0, 5.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
@@ -354,12 +419,22 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  context.pushNamed(
-                                                      'CountryCodePage');
+                                                  context
+                                                      .pushNamed(
+                                                      'CountryCodePage')
+                                                      .then((value) {
+                                                    if (value != null) {
+                                                      setState(() {
+                                                        _model.countryCode =
+                                                            value.toString();
+                                                      });
+                                                    }
+                                                  });
                                                 },
                                                 child: Container(
                                                   width: 50.0,
-                                                  decoration: const BoxDecoration(
+                                                  decoration:
+                                                      const BoxDecoration(
                                                     color: Color(0xFFF5F5F5),
                                                     borderRadius:
                                                         BorderRadius.only(
@@ -376,11 +451,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                14.0,
-                                                                10.0,
-                                                                14.0),
+                                                            .fromSTEB(10.0,
+                                                            14.0, 10.0, 14.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -389,11 +461,12 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                               .center,
                                                       children: [
                                                         Text(
-                                                          FFLocalizations.of(
+                                                          _model.countryCode ??
+                                                              FFLocalizations.of(
                                                                   context)
-                                                              .getText(
-                                                            'rf353ukz' /* JD */,
-                                                          ),
+                                                                  .getText(
+                                                                'ewgnx2a2' /* JOD */,
+                                                              ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -412,8 +485,9 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         5.0, 20.0, 0.0, 0.0),
                                                 child: TextFormField(
                                                   controller:
@@ -446,10 +520,15 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                     enabledBorder:
-                                                        const OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            Color(0xFFF5F5F5),
+                                                            _model.mobileIsEmpty ==
+                                                                    true
+                                                                ? Color(
+                                                                    0xFFEF2121)
+                                                                : Color(
+                                                                    0xFFF5F5F5),
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
@@ -469,10 +548,15 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                       ),
                                                     ),
                                                     focusedBorder:
-                                                        const OutlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            Color(0x00000000),
+                                                            _model.mobileIsEmpty ==
+                                                                    true
+                                                                ? Color(
+                                                                    0xFFEF2121)
+                                                                : Color(
+                                                                    0xFFF5F5F5),
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
@@ -495,13 +579,17 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
+                                                            _model.mobileIsEmpty ==
+                                                                    true
+                                                                ? Color(
+                                                                    0xFFEF2121)
+                                                                : Color(
+                                                                    0xFFF5F5F5),
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius.only(
+                                                          const BorderRadius
+                                                              .only(
                                                         bottomLeft:
                                                             Radius.circular(
                                                                 8.0),
@@ -520,13 +608,17 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
+                                                            _model.mobileIsEmpty ==
+                                                                    true
+                                                                ? Color(
+                                                                    0xFFEF2121)
+                                                                : Color(
+                                                                    0xFFF5F5F5),
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius.only(
+                                                          const BorderRadius
+                                                              .only(
                                                         bottomLeft:
                                                             Radius.circular(
                                                                 8.0),
@@ -547,15 +639,15 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                     contentPadding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(22.0, 0.0,
-                                                                22.0, 0.0),
+                                                            22.0, 0.0),
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        color:
-                                                            const Color(0xFF5A6682),
+                                                        color: const Color(
+                                                            0xFF5A6682),
                                                         letterSpacing: 0.0,
                                                       ),
                                                   keyboardType:
@@ -575,41 +667,39 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                           ],
                                         ),
                                       ),
+                                      Visibility(
+                                        visible: _model.mobileIsEmpty == true,
+                                        child: Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(25.0, 8.0, 25.0, 5.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'rmemwe' /*   phone empty */,
+                                                ),
+                                                style:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmall
+                                                    .override(
+                                                  color:
+                                                  Color(0xFFEF2121),
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            25.0, 20.0, 25.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(25.0, 20.0, 25.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController4,
                                           focusNode: _model.textFieldFocusNode4,
-                                          onChanged: (_) =>
-                                              EasyDebounce.debounce(
-                                            '_model.textController4',
-                                            const Duration(milliseconds: 2000),
-                                            () async {
-                                              if ((_model.textController4
-                                                              .text !=
-                                                          '') &&
-                                                  (_model.textController5
-                                                              .text !=
-                                                          '')) {
-                                                setState(() {
-                                                  _model
-                                                      .passwordIsInvalid = _model
-                                                              .textController4
-                                                              .text !=
-                                                          _model.textController5
-                                                              .text
-                                                      ? true
-                                                      : false;
-                                                });
-                                              } else {
-                                                setState(() {
-                                                  _model.passwordIsInvalid =
-                                                      false;
-                                                });
-                                              }
-                                            },
-                                          ),
                                           autofocus: false,
                                           textInputAction: TextInputAction.next,
                                           obscureText:
@@ -653,7 +743,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                         ? FlutterFlowTheme.of(
                                                                 context)
                                                             .error
-                                                        : const Color(0x00000000),
+                                                        : const Color(
+                                                            0x00000000),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -667,7 +758,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                         ? FlutterFlowTheme.of(
                                                                 context)
                                                             .error
-                                                        : const Color(0x00000000),
+                                                        : const Color(
+                                                            0x00000000),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -697,7 +789,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                             filled: true,
                                             fillColor: const Color(0xFFF5F5F5),
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional
+                                                    .fromSTEB(
                                                     22.0, 0.0, 22.0, 0.0),
                                             suffixIcon: InkWell(
                                               onTap: () => setState(
@@ -732,40 +825,11 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            25.0, 20.0, 25.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(25.0, 20.0, 25.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController5,
                                           focusNode: _model.textFieldFocusNode5,
-                                          onChanged: (_) =>
-                                              EasyDebounce.debounce(
-                                            '_model.textController5',
-                                            const Duration(milliseconds: 2000),
-                                            () async {
-                                              if ((_model.textController4
-                                                              .text !=
-                                                          '') &&
-                                                  (_model.textController5
-                                                              .text !=
-                                                          '')) {
-                                                setState(() {
-                                                  _model
-                                                      .passwordIsInvalid = _model
-                                                              .textController4
-                                                              .text !=
-                                                          _model.textController5
-                                                              .text
-                                                      ? true
-                                                      : false;
-                                                });
-                                              } else {
-                                                setState(() {
-                                                  _model.passwordIsInvalid =
-                                                      false;
-                                                });
-                                              }
-                                            },
-                                          ),
                                           autofocus: false,
                                           textInputAction: TextInputAction.next,
                                           obscureText:
@@ -798,7 +862,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                         ? FlutterFlowTheme.of(
                                                                 context)
                                                             .error
-                                                        : const Color(0x00000000),
+                                                        : const Color(
+                                                            0x00000000),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -812,7 +877,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                         ? FlutterFlowTheme.of(
                                                                 context)
                                                             .error
-                                                        : const Color(0x00000000),
+                                                        : const Color(
+                                                            0x00000000),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -842,7 +908,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                             filled: true,
                                             fillColor: const Color(0xFFF5F5F5),
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional
+                                                    .fromSTEB(
                                                     22.0, 0.0, 22.0, 0.0),
                                             suffixIcon: InkWell(
                                               onTap: () => setState(
@@ -878,9 +945,8 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                       ),
                                       if (_model.passwordIsInvalid == true)
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 10.0, 24.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(24.0, 10.0, 24.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -906,14 +972,92 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                           ),
                                         ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 30.0, 24.0, 122.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24.0, 30.0, 24.0, 122.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Expanded(
                                               child: FFButtonWidget(
                                                 onPressed: () async {
+                                                  if (_model.textController1
+                                                      .text.isEmpty) {
+                                                    setState(() {
+                                                      _model.nameIsEmpty =
+                                                      true;
+                                                    });
+                                                    return false;
+                                                  }
+                                                  setState(() {
+                                                    _model.nameIsEmpty =
+                                                    false;
+                                                  });
+
+                                                  if (_model.textController2
+                                                      .text.isEmpty) {
+                                                    setState(() {
+                                                      _model.emailIsEmpty =
+                                                      true;
+                                                    });
+                                                    return false;
+                                                  }
+                                                  setState(() {
+                                                    _model.emailIsEmpty =
+                                                    false;
+                                                  });
+
+                                                  if (_model.textController3
+                                                      .text.isEmpty) {
+                                                    setState(() {
+                                                      _model.mobileIsEmpty =
+                                                      true;
+                                                    });
+                                                    return false;
+                                                  }
+                                                  setState(() {
+                                                    _model.mobileIsEmpty =
+                                                    false;
+                                                  });
+
+                                                  if (_model.textController4
+                                                      .text.isEmpty) {
+                                                    setState(() {
+                                                      _model.passwordIsInvalid = true;
+                                                    });
+                                                    return false;
+                                                  }
+                                                  setState(() {
+                                                    _model.passwordIsInvalid =
+                                                    false;
+                                                  });
+
+                                                  if (_model.textController5
+                                                      .text.isEmpty) {
+                                                    setState(() {
+                                                      _model.passwordIsInvalid = true;
+                                                    });
+                                                    return false;
+                                                  }
+                                                  setState(() {
+                                                    _model.passwordIsInvalid =
+                                                    false;
+                                                  });
+
+                                                  if (_model.textController4.text != _model.textController5.text) {
+                                                    setState(() {
+                                                      _model.passwordIsInvalid = true;
+                                                    });
+                                                    return false;
+                                                  }
+
+                                                  setState(() {
+                                                    _model.passwordIsInvalid = false;
+                                                  });
+                                                  PackageInfo packageInfo =
+                                                  await PackageInfo
+                                                      .fromPlatform();
+                                                  String version =
+                                                      packageInfo.version;
                                                   _model.apiResultxbd =
                                                       await ApisGroup
                                                           .registerApiCall
@@ -922,7 +1066,7 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                         .textController1.text,
                                                     email: _model
                                                         .textController2.text,
-                                                    mobileNumberCountry: 'cc',
+                                                    mobileNumberCountry: _model.countryCode,
                                                     mobileNumber: _model
                                                         .textController3.text,
                                                     password: _model
@@ -930,37 +1074,45 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                     passwordConfirmation: _model
                                                         .textController5.text,
                                                     fcm: 'cc',
-                                                    appVersion: 'cc',
-                                                    appOs: 'cc',
-                                                    appLang: 'cc',
+                                                    appVersion: version,
+                                                        appOs:
+                                                        Platform.isAndroid
+                                                            ? 'Android'
+                                                            : 'IOS',
+                                                        appLang: FFAppState()
+                                                            .AppLanguage,
                                                   );
-                                                  if ((_model.apiResultxbd
-                                                          ?.succeeded ??
-                                                      true)) {
+                                                  if (_model.apiResultxbd?.statusCode == 200) {
                                                     if (UserModelStruct.maybeFromMap((_model
-                                                                        .apiResultxbd
-                                                                        ?.jsonBody ??
-                                                                    ''))
-                                                                ?.token !=
-                                                            null &&
+                                                        .apiResultxbd
+                                                        ?.jsonBody ??
+                                                        ''))
+                                                        ?.token !=
+                                                        null &&
                                                         UserModelStruct.maybeFromMap((_model
-                                                                        .apiResultxbd
-                                                                        ?.jsonBody ??
-                                                                    ''))
-                                                                ?.token !=
+                                                            .apiResultxbd
+                                                            ?.jsonBody ??
+                                                            ''))
+                                                            ?.token !=
                                                             '') {
                                                       setState(() {
                                                         FFAppState()
-                                                                .UserModelState =
-                                                            UserModelStruct
-                                                                .maybeFromMap((_model
-                                                                        .apiResultxbd
-                                                                        ?.jsonBody ??
-                                                                    ''))!;
+                                                            .UserModelState =
+                                                        UserModelStruct
+                                                            .maybeFromMap((_model
+                                                            .apiResultxbd
+                                                            ?.jsonBody ??
+                                                            ''))!;
                                                       });
                                                     }
+                                                  } else {
+                                                    errorSheet(
+                                                        context,
+                                                        _model.unfocusNode,
+                                                        _model.apiResultxbd
+                                                            ?.bodyText,
+                                                        _model.apiResultxbd?.statusCode ?? 0);
                                                   }
-
                                                   setState(() {});
                                                 },
                                                 text:
@@ -970,14 +1122,16 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                 ),
                                                 options: FFButtonOptions(
                                                   height: 40.0,
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           24.0, 0.0, 24.0, 0.0),
                                                   iconPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: const Color(0xFF1378BE),
+                                                          .fromSTEB(
+                                                          0.0, 0.0, 0.0, 0.0),
+                                                  color:
+                                                      const Color(0xFF1378BE),
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .bodySmall

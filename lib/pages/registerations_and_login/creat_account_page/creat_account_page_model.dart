@@ -42,6 +42,11 @@ class CreatAccountPageModel extends FlutterFlowModel<CreatAccountPageWidget> {
   String? Function(BuildContext, String?)? textController5Validator;
   // Stores action output result for [Backend Call - API (RegisterApi)] action in Button widget.
   ApiCallResponse? apiResultxbd;
+  bool? nameIsEmpty = false;
+  bool? emailIsEmpty = false;
+  bool? mobileIsEmpty = false;
+  String? countryCode;
+
 
   @override
   void initState(BuildContext context) {
