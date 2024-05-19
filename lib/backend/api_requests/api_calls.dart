@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -9,7 +11,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start apis Group Code
 
 class ApisGroup {
-  static String baseUrl = 'https://chainlms.completechaintech.com/api';
+  static String getBaseUrl() => 'https://chainlms.completechaintech.com/api';
   static Map<String, String> headers = {
     'Accept': 'application/json',
   };
@@ -31,6 +33,8 @@ class RegisterApiCall {
     String? appOs = '',
     String? appLang = '',
   }) async {
+    final baseUrl = ApisGroup.getBaseUrl();
+
     final ffApiRequestBody = '''
 {
   "name": "$name",
@@ -46,7 +50,7 @@ class RegisterApiCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'RegisterApi',
-      apiUrl: '${ApisGroup.baseUrl}/register',
+      apiUrl: '$baseUrl/register',
       callType: ApiCallType.POST,
       headers: {
         'Accept': 'application/json',
@@ -73,6 +77,8 @@ class LoginApiCall {
     String? appOs = '',
     String? appLang = '',
   }) async {
+    final baseUrl = ApisGroup.getBaseUrl();
+
     final ffApiRequestBody = '''
 {
   "mobileNumber_country": "$mobileNumberCountry",
@@ -85,7 +91,7 @@ class LoginApiCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'LoginApi',
-      apiUrl: '${ApisGroup.baseUrl}/login',
+      apiUrl: '$baseUrl/login',
       callType: ApiCallType.POST,
       headers: {
         'Accept': 'application/json',
@@ -104,9 +110,11 @@ class LoginApiCall {
 
 class GetCountryApiCall {
   Future<ApiCallResponse> call() async {
+    final baseUrl = ApisGroup.getBaseUrl();
+
     return ApiManager.instance.makeApiCall(
       callName: 'GetCountryApi',
-      apiUrl: '${ApisGroup.baseUrl}/country',
+      apiUrl: '$baseUrl/country',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -144,6 +152,9 @@ String _serializeList(List? list) {
   try {
     return json.encode(list);
   } catch (_) {
+    if (kDebugMode) {
+      print("List serialization failed. Returning empty list.");
+    }
     return '[]';
   }
 }
@@ -153,6 +164,9 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
   try {
     return json.encode(jsonVar);
   } catch (_) {
+    if (kDebugMode) {
+      print("Json serialization failed. Returning empty json.");
+    }
     return isList ? '[]' : '{}';
   }
 }

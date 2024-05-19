@@ -118,9 +118,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Question Bank',
       'ar': 'بنك الأسئلة',
     },
-    'er6kmkas': {
-      'en': 'Email',
-      'ar': 'بريد إلكتروني',
+    'ewgnx2a2': {
+      'en': 'JD',
+      'ar': '',
+    },
+    'oo3b7kuz': {
+      'en': 'Mobile',
+      'ar': 'متحرك',
     },
     'gk97f3v1': {
       'en': 'Paaword',
