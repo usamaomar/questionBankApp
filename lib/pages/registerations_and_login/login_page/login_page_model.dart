@@ -1,3 +1,5 @@
+import 'package:question_bank/backend/api_requests/api_calls.dart';
+
 import '/flutter_flow/flutter_flow_util.dart';
 import 'login_page_widget.dart' show LoginPageWidget;
 import 'package:flutter/material.dart';
@@ -14,6 +16,7 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   late bool passwordVisibility;
+  ApiCallResponse? loginApiCall;
   String? Function(BuildContext, String?)? textController2Validator;
 
   @override
