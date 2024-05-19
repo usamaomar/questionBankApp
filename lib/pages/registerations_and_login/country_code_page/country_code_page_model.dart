@@ -12,13 +12,19 @@ class CountryCodePageModel extends FlutterFlowModel<CountryCodePageWidget> {
   void updateListOfCountryStruct(Function(CountryListModelStruct) updateFn) =>
       updateFn(listOfCountry ??= CountryListModelStruct());
 
+
+  CountryListModelStruct? holderListOfCountryModel = CountryListModelStruct();
+
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  bool searchStarted = false;
   // Stores action output result for [Backend Call - API (GetCountryApi)] action in CountryCodePage widget.
   ApiCallResponse? apiResult30l;
   InstantTimer? instantTimer;
-
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? textController2;
   @override
   void initState(BuildContext context) {}
 
@@ -26,5 +32,7 @@ class CountryCodePageModel extends FlutterFlowModel<CountryCodePageWidget> {
   void dispose() {
     unfocusNode.dispose();
     instantTimer?.cancel();
+    textFieldFocusNode2?.dispose();
+    textController2?.dispose();
   }
 }

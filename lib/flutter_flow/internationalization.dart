@@ -119,8 +119,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'بنك الأسئلة',
     },
     'ewgnx2a2': {
-      'en': 'JD',
-      'ar': '',
+      'en': 'JOD',
+      'ar': 'JOD',
     },
     'oo3b7kuz': {
       'en': 'Mobile',
@@ -133,6 +133,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ei6ui2p8': {
       'en': 'Forgot Password',
       'ar': 'هل نسيت كلمة السر',
+    },
+    'ei6ui2dmsdfjlskdjflksdjlp8': {
+      'en': 'Password Must Not Be Empty',
+      'ar': 'كلمة السر فارغة',
+    },
+    'kfmdlkmlsdkmflksdmflksd': {
+      'en': 'Phone Must Not Be Empty',
+      'ar': 'رقم الهاتف فارغ',
     },
     'z9e115ot': {
       'en': 'LOGIN',
@@ -441,6 +449,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'bmx40rry': {
       'en': 'Search for an item...',
       'ar': '',
+    },
+    'bmx4fdkmflkdm0rry': {
+      'en': 'Search',
+      'ar': 'البحث',
     },
     'c8ccoqnc': {
       'en': 'Speciality',

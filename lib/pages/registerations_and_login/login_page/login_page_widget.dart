@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'dart:io' show Platform;
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({super.key});
@@ -41,16 +43,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
+      onTap: () =>
+      _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme
+            .of(context)
+            .primaryBackground,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(45.0),
           child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
+            backgroundColor: FlutterFlowTheme
+                .of(context)
+                .primary,
             automaticallyImplyLeading: false,
             actions: const [],
             centerTitle: false,
@@ -64,9 +71,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             children: [
               Container(
                 width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.3,
+                height: MediaQuery
+                    .sizeOf(context)
+                    .height * 0.3,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: FlutterFlowTheme
+                      .of(context)
+                      .primary,
                 ),
               ),
               Column(
@@ -87,8 +98,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     ],
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 15.0, 0.0, 15.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -98,13 +109,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             'kz5fiqod' /* Question Bank */,
                           ),
                           style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).info,
-                                    fontSize: 33.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w800,
-                                  ),
+                          FlutterFlowTheme
+                              .of(context)
+                              .bodyMedium
+                              .override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme
+                                .of(context)
+                                .info,
+                            fontSize: 33.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
                       ],
                     ),
@@ -114,7 +130,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      20.0, 0.0, 20.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -133,7 +150,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 borderRadius: BorderRadius.circular(20.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color: FlutterFlowTheme
+                                        .of(context)
+                                        .info,
                                     boxShadow: const [
                                       BoxShadow(
                                         blurRadius: 14.0,
@@ -152,11 +171,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            25.0, 35.0, 25.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(25.0, 35.0, 25.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                          BorderRadius.circular(8.0),
                                           child: SvgPicture.asset(
                                             'assets/images/Group_73193.svg',
                                             width: 275.0,
@@ -166,71 +185,81 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            25.0, 0.0, 25.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(25.0, 0.0, 25.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding:
+                                              const EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      0.0, 20.0, 5.0, 0.0),
+                                                  0.0, 20.0, 5.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
                                                 hoverColor: Colors.transparent,
                                                 highlightColor:
-                                                    Colors.transparent,
+                                                Colors.transparent,
                                                 onTap: () async {
-                                                  context.pushNamed(
-                                                      'CountryCodePage');
+                                                  context
+                                                      .pushNamed(
+                                                      'CountryCodePage')
+                                                      .then((value) {
+                                                    if (value != null) {
+                                                      setState(() {
+                                                        _model.countryCode =
+                                                            value.toString();
+                                                      });
+                                                    }
+                                                  });
                                                 },
                                                 child: Container(
                                                   width: 50.0,
-                                                  decoration: const BoxDecoration(
+                                                  decoration:
+                                                  const BoxDecoration(
                                                     color: Color(0xFFF5F5F5),
                                                     borderRadius:
-                                                        BorderRadius.only(
+                                                    BorderRadius.only(
                                                       bottomLeft:
-                                                          Radius.circular(8.0),
+                                                      Radius.circular(8.0),
                                                       bottomRight:
-                                                          Radius.circular(8.0),
+                                                      Radius.circular(8.0),
                                                       topLeft:
-                                                          Radius.circular(8.0),
+                                                      Radius.circular(8.0),
                                                       topRight:
-                                                          Radius.circular(8.0),
+                                                      Radius.circular(8.0),
                                                     ),
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                14.0,
-                                                                10.0,
-                                                                14.0),
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(10.0,
+                                                        14.0, 10.0, 14.0),
                                                     child: Row(
                                                       mainAxisSize:
-                                                          MainAxisSize.max,
+                                                      MainAxisSize.max,
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
+                                                      MainAxisAlignment
+                                                          .center,
                                                       children: [
                                                         Text(
-                                                          FFLocalizations.of(
+                                                          _model.countryCode ??
+                                                              FFLocalizations
+                                                                  .of(
                                                                   context)
-                                                              .getText(
-                                                            'ewgnx2a2' /* JD */,
-                                                          ),
+                                                                  .getText(
+                                                                'ewgnx2a2' /* JOD */,
+                                                              ),
                                                           style: FlutterFlowTheme
-                                                                  .of(context)
+                                                              .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
+                                                            fontFamily:
+                                                            'Poppins',
+                                                            letterSpacing:
+                                                            0.0,
+                                                          ),
                                                         ),
                                                       ],
                                                     ),
@@ -240,157 +269,177 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding:
+                                                const EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        5.0, 20.0, 0.0, 0.0),
+                                                    5.0, 20.0, 0.0, 0.0),
                                                 child: TextFormField(
                                                   controller:
-                                                      _model.textController1,
+                                                  _model.textController1,
                                                   focusNode: _model
                                                       .textFieldFocusNode1,
                                                   autofocus: false,
                                                   textInputAction:
-                                                      TextInputAction.next,
+                                                  TextInputAction.next,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelText:
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
+                                                    FFLocalizations.of(
+                                                        context)
+                                                        .getText(
                                                       'oo3b7kuz' /* Mobile */,
                                                     ),
                                                     labelStyle: FlutterFlowTheme
-                                                            .of(context)
+                                                        .of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                     hintStyle: FlutterFlowTheme
-                                                            .of(context)
+                                                        .of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                     enabledBorder:
-                                                        const OutlineInputBorder(
+                                                    OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            Color(0xFFF5F5F5),
+                                                        _model.phoneIsInvalid ==
+                                                            true
+                                                            ? Color(
+                                                            0xFFEF2121)
+                                                            : Color(
+                                                            0xFFF5F5F5),
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
-                                                          BorderRadius.only(
+                                                      BorderRadius.only(
                                                         bottomLeft:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         bottomRight:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         topLeft:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         topRight:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                       ),
                                                     ),
                                                     focusedBorder:
-                                                        const OutlineInputBorder(
+                                                    OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            Color(0x00000000),
+                                                        _model.phoneIsInvalid ==
+                                                            true
+                                                            ? Color(
+                                                            0xFFEF2121)
+                                                            : Color(
+                                                            0xFFF5F5F5),
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
-                                                          BorderRadius.only(
+                                                      BorderRadius.only(
                                                         bottomLeft:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         bottomRight:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         topLeft:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         topRight:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                       ),
                                                     ),
                                                     errorBorder:
-                                                        OutlineInputBorder(
+                                                    OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
+                                                        _model.phoneIsInvalid ==
+                                                            true
+                                                            ? Color(
+                                                            0xFFEF2121)
+                                                            : Color(
+                                                            0xFFF5F5F5),
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius.only(
+                                                      const BorderRadius
+                                                          .only(
                                                         bottomLeft:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         bottomRight:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         topLeft:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         topRight:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                       ),
                                                     ),
                                                     focusedErrorBorder:
-                                                        OutlineInputBorder(
+                                                    OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
+                                                        _model.phoneIsInvalid ==
+                                                            true
+                                                            ? Color(
+                                                            0xFFEF2121)
+                                                            : Color(
+                                                            0xFFF5F5F5),
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius.only(
+                                                      const BorderRadius
+                                                          .only(
                                                         bottomLeft:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         bottomRight:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         topLeft:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                         topRight:
-                                                            Radius.circular(
-                                                                8.0),
+                                                        Radius.circular(
+                                                            8.0),
                                                       ),
                                                     ),
                                                     filled: true,
                                                     fillColor:
-                                                        const Color(0xFFF5F5F5),
+                                                    const Color(0xFFF5F5F5),
                                                     contentPadding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(22.0, 0.0,
-                                                                22.0, 0.0),
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(22.0, 0.0,
+                                                        22.0, 0.0),
                                                   ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
+                                                  style: FlutterFlowTheme
+                                                      .of(
+                                                      context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            const Color(0xFF5A6682),
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                    fontFamily: 'Poppins',
+                                                    color: const Color(
+                                                        0xFF5A6682),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                                   keyboardType:
-                                                      const TextInputType
-                                                          .numberWithOptions(
-                                                          signed: true,
-                                                          decimal: true),
+                                                  const TextInputType
+                                                      .numberWithOptions(
+                                                      signed: true,
+                                                      decimal: true),
                                                   validator: _model
                                                       .textController1Validator
                                                       .asValidator(context),
@@ -403,112 +452,188 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           ],
                                         ),
                                       ),
+                                      Visibility(
+                                        visible:
+                                        _model.phoneIsInvalid == true,
+                                        child: Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(25.0, 8.0, 25.0, 5.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'kfmdlkmlsdkmflksdmflksd' /*   phone empty */,
+                                                ),
+                                                style:
+                                                FlutterFlowTheme
+                                                    .of(context)
+                                                    .labelSmall
+                                                    .override(
+                                                  color:
+                                                  Color(0xFFEF2121),
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            25.0, 20.0, 25.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(25.0, 20.0, 25.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController2,
                                           focusNode: _model.textFieldFocusNode2,
                                           autofocus: false,
                                           textInputAction: TextInputAction.next,
                                           obscureText:
-                                              !_model.passwordVisibility,
+                                          !_model.passwordVisibility,
                                           decoration: InputDecoration(
                                             labelText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
+                                            FFLocalizations.of(context)
+                                                .getText(
                                               'gk97f3v1' /* Paaword */,
                                             ),
                                             labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                            FlutterFlowTheme
+                                                .of(context)
+                                                .labelMedium
+                                                .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                             hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                            FlutterFlowTheme
+                                                .of(context)
+                                                .labelMedium
+                                                .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                             enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: Color(0x00000000),
+                                              borderSide: BorderSide(
+                                                color:
+                                                _model.passwordIsInvalid ==
+                                                    true
+                                                    ? Color(0xFFEF2121)
+                                                    : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: Color(0x00000000),
+                                              borderSide: BorderSide(
+                                                color:
+                                                _model.passwordIsInvalid ==
+                                                    true
+                                                    ? Color(0xFFEF2121)
+                                                    : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
+                                                _model.passwordIsInvalid ==
+                                                    true
+                                                    ? Color(0xFFEF2121)
+                                                    : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                             ),
                                             focusedErrorBorder:
-                                                OutlineInputBorder(
+                                            OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
+                                                _model.passwordIsInvalid ==
+                                                    true
+                                                    ? Color(0xFFEF2121)
+                                                    : Color(0xFFF5F5F5),
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                             ),
                                             filled: true,
                                             fillColor: const Color(0xFFF5F5F5),
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 0.0),
+                                            const EdgeInsetsDirectional
+                                                .fromSTEB(
+                                                12.0, 0.0, 12.0, 0.0),
                                             suffixIcon: InkWell(
-                                              onTap: () => setState(
-                                                () => _model
+                                              onTap: () =>
+                                                  setState(
+                                                        () =>
+                                                    _model
                                                         .passwordVisibility =
                                                     !_model.passwordVisibility,
-                                              ),
+                                                  ),
                                               focusNode: FocusNode(
                                                   skipTraversal: true),
                                               child: Icon(
                                                 _model.passwordVisibility
                                                     ? Icons.visibility_outlined
                                                     : Icons
-                                                        .visibility_off_outlined,
+                                                    .visibility_off_outlined,
                                                 color: const Color(0xFF5A6682),
                                                 size: 22.0,
                                               ),
                                             ),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
+                                          style: FlutterFlowTheme
+                                              .of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
-                                                letterSpacing: 0.0,
-                                              ),
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                           keyboardType:
-                                              TextInputType.visiblePassword,
+                                          TextInputType.visiblePassword,
                                           validator: _model
                                               .textController2Validator
                                               .asValidator(context),
                                         ),
                                       ),
+                                      Visibility(
+                                        visible:
+                                        _model.passwordIsInvalid == true,
+                                        child: Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(25.0, 8.0, 25.0, 22.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'ei6ui2dmsdfjlskdjflksdjlp8' /*   Password */,
+                                                ),
+                                                style:
+                                                FlutterFlowTheme
+                                                    .of(context)
+                                                    .labelSmall
+                                                    .override(
+                                                  color:
+                                                  Color(0xFFEF2121),
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            25.0, 8.0, 25.0, 22.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(25.0, 8.0, 25.0, 22.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -518,64 +643,104 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 'ei6ui2p8' /* Forgot Password */,
                                               ),
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              FlutterFlowTheme
+                                                  .of(context)
+                                                  .labelSmall
+                                                  .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                             ),
                                           ],
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 8.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24.0, 0.0, 24.0, 8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Expanded(
                                               child: FFButtonWidget(
-                                                onPressed: () async{
-
-                                                  // _model.loginApiCall = await ApisGroup.loginApiCall.call()
-
-
+                                                onPressed: () async {
+                                                  if (_model.textController2
+                                                      .text.isEmpty) {
+                                                    setState(() {
+                                                      _model.passwordIsInvalid =
+                                                      true;
+                                                    });
+                                                    return false;
+                                                  }
+                                                  setState(() {
+                                                    _model.passwordIsInvalid =
+                                                    false;
+                                                  });
+                                                  if (_model.textController1
+                                                      .text.isEmpty) {
+                                                    setState(() {
+                                                      _model.phoneIsInvalid =
+                                                      true;
+                                                    });
+                                                    return false;
+                                                  }
+                                                  setState(() {
+                                                    _model.phoneIsInvalid =
+                                                    false;
+                                                  });
+                                                  PackageInfo packageInfo = await PackageInfo
+                                                      .fromPlatform();
+                                                  String version = packageInfo
+                                                      .version;
+                                                  _model.loginApiCall =
+                                                  await ApisGroup.loginApiCall
+                                                      .call(
+                                                      mobileNumberCountry: _model
+                                                          .countryCode ?? 'JOR',
+                                                      mobileNumber: _model
+                                                          .textController1.text,
+                                                      fcm: 'value',
+                                                      appVersion: version,
+                                                      appOs: Platform.isAndroid
+                                                          ? 'Android'
+                                                          : 'IOS',
+                                                      appLang: 'FFAppState().');
                                                 },
                                                 text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
+                                                FFLocalizations.of(context)
+                                                    .getText(
                                                   'z9e115ot' /* LOGIN */,
                                                 ),
                                                 options: FFButtonOptions(
                                                   height: 40.0,
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding:
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          24.0, 0.0, 24.0, 0.0),
+                                                      24.0, 0.0, 24.0, 0.0),
                                                   iconPadding:
-                                                      const EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: const Color(0xFF1378BE),
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 0.0, 0.0, 0.0),
+                                                  color:
+                                                  const Color(0xFF1378BE),
                                                   textStyle: FlutterFlowTheme
-                                                          .of(context)
+                                                      .of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                    fontFamily: 'Poppins',
+                                                    color: FlutterFlowTheme
+                                                        .of(context)
+                                                        .secondaryBackground,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                                   elevation: 3.0,
                                                   borderSide: const BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                  BorderRadius.circular(
+                                                      8.0),
                                                 ),
                                               ),
                                             ),
@@ -583,12 +748,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            35.0, 18.0, 35.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(35.0, 18.0, 35.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               FFLocalizations.of(context)
@@ -596,30 +761,31 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 '1xojipgm' /* Don't have an accpunt yet? */,
                                               ),
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              FlutterFlowTheme
+                                                  .of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                             ),
                                           ],
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            35.0, 0.0, 35.0, 25.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(35.0, 0.0, 35.0, 25.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                           children: [
                                             InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
                                               hoverColor: Colors.transparent,
                                               highlightColor:
-                                                  Colors.transparent,
+                                              Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
                                                     'CreatAccountPage');
@@ -630,14 +796,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   'mg3afphe' /* Create an account */,
                                                 ),
                                                 style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                FlutterFlowTheme
+                                                    .of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                  FontWeight.bold,
+                                                ),
                                               ),
                                             ),
                                           ],

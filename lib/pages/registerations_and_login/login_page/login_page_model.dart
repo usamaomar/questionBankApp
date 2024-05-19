@@ -9,17 +9,22 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
   final textFieldMask1 = MaskTextInputFormatter(mask: '(###) ###-####');
   String? Function(BuildContext, String?)? textController1Validator;
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   late bool passwordVisibility;
   ApiCallResponse? loginApiCall;
+  String? countryCode;
   String? Function(BuildContext, String?)? textController2Validator;
+  bool? passwordIsInvalid = false;
+  bool? phoneIsInvalid = false;
 
   @override
   void initState(BuildContext context) {
