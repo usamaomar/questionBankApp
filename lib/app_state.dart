@@ -29,6 +29,9 @@ class FFAppState extends ChangeNotifier {
         }
       }
     });
+    _safeInit(() {
+      _AppLanguage = prefs.getString('ff_AppLanguage') ?? _AppLanguage;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -48,6 +51,13 @@ class FFAppState extends ChangeNotifier {
   void updateUserModelStateStruct(Function(UserModelStruct) updateFn) {
     updateFn(_UserModelState);
     prefs.setString('ff_UserModelState', _UserModelState.serialize());
+  }
+
+  String _AppLanguage = 'ar';
+  String get AppLanguage => _AppLanguage;
+  set AppLanguage(String value) {
+    _AppLanguage = value;
+    prefs.setString('ff_AppLanguage', value);
   }
 }
 
