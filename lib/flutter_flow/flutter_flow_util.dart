@@ -7,6 +7,7 @@ import 'package:collection/collection.dart';
 import 'package:from_css_color/from_css_color.dart';
 import 'package:intl/intl.dart';
 import 'package:json_path/json_path.dart';
+import 'package:question_bank/flutter_flow/flutter_flow_theme.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:url_launcher/url_launcher.dart';
 
@@ -373,3 +374,31 @@ extension ListUniqueExt<T> on Iterable<T> {
     return distinctList;
   }
 }
+
+// void errorSheet(BuildContext context ,String? error) async {
+//   await Future.delayed(const Duration(milliseconds: 500));
+//   await showModalBottomSheet(
+//     isScrollControlled: true,
+//     shape: const RoundedRectangleBorder(
+//       borderRadius: BorderRadius.vertical(top: Radius.circular(10.0)),
+//     ),
+//     backgroundColor: const Color(0xFFFFFFFF),
+//     isDismissible: true,
+//     enableDrag: false,
+//     useSafeArea: true,
+//     context: context,
+//     builder: (context) {
+//       return GestureDetector(
+//         onTap: () => _model.unfocusNode.canRequestFocus
+//             ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+//             : FocusScope.of(context).unfocus(),
+//         child: Padding(
+//           padding: MediaQuery.viewInsetsOf(context),
+//           child: ErrorBottomSheetComponentWidget(
+//             error: error,
+//           ),
+//         ),
+//       );
+//     },
+//   );
+// }
