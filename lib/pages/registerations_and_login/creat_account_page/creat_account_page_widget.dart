@@ -1,5 +1,6 @@
 import 'package:package_info_plus/package_info_plus.dart';
 
+import '../../../auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -1105,6 +1106,10 @@ class _CreatAccountPageWidgetState extends State<CreatAccountPageWidget> {
                                                             ''))!;
                                                       });
                                                     }
+                                                    await authManager.signIn(
+                                                      authenticationToken: FFAppState().UserModelState.token,
+                                                    );
+                                                    context.goNamedAuth('HomePage', context.mounted);
                                                   } else {
                                                     errorSheet(
                                                         context,

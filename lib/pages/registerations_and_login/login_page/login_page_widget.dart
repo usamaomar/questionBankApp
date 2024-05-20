@@ -1,3 +1,4 @@
+import '../../../auth/custom_auth/auth_util.dart';
 import '../../../backend/api_requests/api_calls.dart';
 import '../../../backend/schema/structs/user_model_struct.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -687,28 +688,32 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                           appLang: FFAppState()
                                                               .AppLanguage);
                                                   if (_model.loginApiCall?.statusCode == 200) {
-                                                    // if (UserModelStruct.maybeFromMap((_model
-                                                    //     .loginApiCall
-                                                    //     ?.jsonBody ??
-                                                    //     ''))
-                                                    //     ?.token !=
-                                                    //     null &&
-                                                    //     UserModelStruct.maybeFromMap((_model
-                                                    //         .loginApiCall
-                                                    //         ?.jsonBody ??
-                                                    //         ''))
-                                                    //         ?.token !=
-                                                    //         '') {
-                                                    //   setState(() {
-                                                    //     FFAppState()
-                                                    //         .UserModelState =
-                                                    //     UserModelStruct
-                                                    //         .maybeFromMap((_model
-                                                    //         .loginApiCall
-                                                    //         ?.jsonBody ??
-                                                    //         ''))!;
-                                                    //   });
-                                                    // }
+                                                    if (UserModelStruct.maybeFromMap((_model
+                                                        .loginApiCall
+                                                        ?.jsonBody ??
+                                                        ''))
+                                                        ?.token !=
+                                                        null &&
+                                                        UserModelStruct.maybeFromMap((_model
+                                                            .loginApiCall
+                                                            ?.jsonBody ??
+                                                            ''))
+                                                            ?.token !=
+                                                            '') {
+                                                      setState(() {
+                                                        FFAppState()
+                                                            .UserModelState =
+                                                        UserModelStruct
+                                                            .maybeFromMap((_model
+                                                            .loginApiCall
+                                                            ?.jsonBody ??
+                                                            ''))!;
+                                                      });
+                                                    }
+                                                    await authManager.signIn(
+                                                      authenticationToken: FFAppState().UserModelState.token,
+                                                    );
+                                                    context.goNamedAuth('HomePage', context.mounted);
                                                   } else {
                                                     errorSheet(
                                                         context,
