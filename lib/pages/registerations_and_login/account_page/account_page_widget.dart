@@ -2,26 +2,25 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'start_exam_page_copy_model.dart';
-export 'start_exam_page_copy_model.dart';
+import 'account_page_model.dart';
+export 'account_page_model.dart';
 
-class StartExamPageCopyWidget extends StatefulWidget {
-  const StartExamPageCopyWidget({super.key});
+class AccountPageWidget extends StatefulWidget {
+  const AccountPageWidget({super.key});
 
   @override
-  State<StartExamPageCopyWidget> createState() =>
-      _StartExamPageCopyWidgetState();
+  State<AccountPageWidget> createState() => _AccountPageWidgetState();
 }
 
-class _StartExamPageCopyWidgetState extends State<StartExamPageCopyWidget> {
-  late StartExamPageCopyModel _model;
+class _AccountPageWidgetState extends State<AccountPageWidget> {
+  late AccountPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => StartExamPageCopyModel());
+    _model = createModel(context, () => AccountPageModel());
   }
 
   @override

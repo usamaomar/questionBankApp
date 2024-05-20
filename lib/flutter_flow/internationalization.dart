@@ -365,8 +365,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'اشتري الآن',
     },
     'ejnl14pq': {
-      'en': 'Home',
-      'ar': '',
+      'en': 'Packeges',
+      'ar': 'الحزم',
     },
   },
   // SideMenuPage
@@ -404,8 +404,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'تسجيل خروج',
     },
     'lly55doe': {
-      'en': 'Home',
-      'ar': '',
+      'en': 'Settings',
+      'ar': 'إعدادات',
     },
   },
   // EditSettingsPage
@@ -629,7 +629,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
-  // StartExamPageCopy
+  // AccountPage
   {
     'lli7etrg': {
       'en': 'Ahmad Salem',
@@ -700,8 +700,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
     'yerwk9xd': {
-      'en': 'Home',
-      'ar': '',
+      'en': 'Account',
+      'ar': 'الحساب',
     },
   },
   // CountryCodePage

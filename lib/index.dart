@@ -24,7 +24,7 @@ export '/pages/registerations_and_login/exams_page/exams_page_widget.dart'
     show ExamsPageWidget;
 export '/pages/registerations_and_login/start_exam_page/start_exam_page_widget.dart'
     show StartExamPageWidget;
-export '/pages/registerations_and_login/start_exam_page_copy/start_exam_page_copy_widget.dart'
-    show StartExamPageCopyWidget;
+export '/pages/registerations_and_login/account_page/account_page_widget.dart'
+    show AccountPageWidget;
 export '/pages/registerations_and_login/country_code_page/country_code_page_widget.dart'
     show CountryCodePageWidget;

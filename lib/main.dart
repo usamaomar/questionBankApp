@@ -133,12 +133,9 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': const HomePageWidget(),
+      'AccountPage': const AccountPageWidget(),
       'PackagePage': const PackagePageWidget(),
       'SideMenuPage': const SideMenuPageWidget(),
-      'AboutAppPage': const AboutAppPageWidget(),
-      'PurchasedPackagesPage': const PurchasedPackagesPageWidget(),
-      'StartExamPage': const StartExamPageWidget(),
-      'StartExamPageCopy': const StartExamPageCopyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -153,8 +150,8 @@ class _NavBarPageState extends State<NavBarPage> {
         backgroundColor: Colors.white,
         selectedItemColor: FlutterFlowTheme.of(context).primary,
         unselectedItemColor: const Color(0x8A000000),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -172,8 +169,22 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.person_sharp,
               size: 24.0,
             ),
+            activeIcon: const Icon(
+              Icons.person,
+              size: 24.0,
+            ),
             label: FFLocalizations.of(context).getText(
-              'ejnl14pq' /* Home */,
+              'yerwk9xd' /* Account */,
+            ),
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.pages,
+              size: 24.0,
+            ),
+            label: FFLocalizations.of(context).getText(
+              'ejnl14pq' /* Packeges */,
             ),
             tooltip: '',
           ),
@@ -183,47 +194,7 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              'lly55doe' /* Home */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.person_sharp,
-              size: 24.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              '6m4w81w5' /* Home */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.person_sharp,
-              size: 24.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              'mzrfyiks' /* Home */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.person_sharp,
-              size: 24.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              'yb3f92gc' /* Home */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.person_sharp,
-              size: 24.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              'yerwk9xd' /* Home */,
+              'lly55doe' /* Settings */,
             ),
             tooltip: '',
           )

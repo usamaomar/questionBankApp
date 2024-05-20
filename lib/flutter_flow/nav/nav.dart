@@ -132,16 +132,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'AboutAppPage',
           path: '/aboutAppPage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'AboutAppPage')
-              : const AboutAppPageWidget(),
+          builder: (context, params) => const AboutAppPageWidget(),
         ),
         FFRoute(
           name: 'PurchasedPackagesPage',
           path: '/purchasedPackagesPage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'PurchasedPackagesPage')
-              : const PurchasedPackagesPageWidget(),
+          builder: (context, params) => const PurchasedPackagesPageWidget(),
         ),
         FFRoute(
           name: 'ExamResultsPage',
@@ -156,16 +152,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'StartExamPage',
           path: '/startExamPage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'StartExamPage')
-              : const StartExamPageWidget(),
+          builder: (context, params) => const StartExamPageWidget(),
         ),
         FFRoute(
-          name: 'StartExamPageCopy',
-          path: '/startExamPageCopy',
+          name: 'AccountPage',
+          path: '/accountPage',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'StartExamPageCopy')
-              : const StartExamPageCopyWidget(),
+              ? const NavBarPage(initialPage: 'AccountPage')
+              : const AccountPageWidget(),
         ),
         FFRoute(
           name: 'CountryCodePage',

@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'start_exam_page_copy_widget.dart' show StartExamPageCopyWidget;
+import 'account_page_widget.dart' show AccountPageWidget;
 import 'package:flutter/material.dart';
 
-class StartExamPageCopyModel extends FlutterFlowModel<StartExamPageCopyWidget> {
+class AccountPageModel extends FlutterFlowModel<AccountPageWidget> {
   ///  Local state fields for this page.
 
   List<String> listOfItems = [
